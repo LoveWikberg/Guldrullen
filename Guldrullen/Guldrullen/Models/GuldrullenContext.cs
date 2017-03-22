@@ -47,10 +47,10 @@ namespace Guldrullen.Models.Entities
             return ret;
         }
 
-        public MovieIndexTopRatedVM[] GetTopFiveMovies()
+        public MovieIndexTopRatedVM[] GetTopTenMovies()
         {
             var topFiveMovies = ListMovies("", "")
-                .OrderByDescending(m => m.Rate).Take(5)
+                .OrderByDescending(m => m.Rate).Take(10)
                 .Select(m => new MovieIndexTopRatedVM
                 {
                     Title = m.Title,
@@ -61,11 +61,10 @@ namespace Guldrullen.Models.Entities
             return topFiveMovies;
         }
 
-
         public MovieIndexRecentlyAddedVM[] GetRecentlyAddedMovies()
         {
             var newMovies = ListMovies("", "")
-                .OrderByDescending(m => m.Id).Take(5)
+                .OrderByDescending(m => m.Id).Take(10)
                 .Select(m => new MovieIndexRecentlyAddedVM
                 {
                     Id = m.Id,
@@ -137,7 +136,8 @@ namespace Guldrullen.Models.Entities
                 Title = movie.Title,
                 InfoText = movie.About,
                 Id = movie.Id,
-                Trailer = movie.Trailer
+                Trailer = movie.Trailer,
+                Genre = movie.Genre
             };
         }
 
@@ -174,6 +174,10 @@ namespace Guldrullen.Models.Entities
                 "Action",
                 "Comedy",
                 "Drama",
+                "Kids",
+                "Thriller",
+                "Horror",
+                "Documentary"
             };
         }
 
@@ -192,11 +196,12 @@ namespace Guldrullen.Models.Entities
             return selectedGenre;
         }
 
-        public MovieDisplayVM[] GetNaVBarSearchResult(string search)
+        public MovieDisplayVM[] GetNavBarSearchResult(string search)
         {
             var moviesToReturn = Movie.Select(m => new MovieDisplayVM
             {
-                Title = m.Title
+                Title = m.Title,
+                Id = m.Id
             }).Where(m => m.Title.Contains(search)).ToArray();
 
             return moviesToReturn;

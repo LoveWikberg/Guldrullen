@@ -23,7 +23,7 @@ namespace Guldrullen.Models
         public string Title { get; set; }
 
         [Display(Name = "Text")]
-        [MaxLength(500, ErrorMessage = "Only 500 character allowed")]
+        [MaxLength(1500, ErrorMessage = "Only 1500 character allowed")]
         public string Text { get; set; }
     }
 

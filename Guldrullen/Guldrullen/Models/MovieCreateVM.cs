@@ -15,7 +15,7 @@ namespace Guldrullen.Models
         [Required(ErrorMessage = "*Required")]
         public string Title { get; set; }
 
-        [Display(Name = "Length")]
+        [Display(Name = "Length (In minutes)")]
         [Required(ErrorMessage = "*Required")]
         public int Length { get; set; }
 
@@ -35,6 +35,7 @@ namespace Guldrullen.Models
         public IFormFile Image { get; set; }
 
         [Display(Name = "Trailer")]
+        [Url(ErrorMessage = "The Trailer field is not a valid fully-qualified http, https, or ftp URL. Click the question mark for more information on how to do.")]
         public string Trailer { get; set; }
 
         public IEnumerable<SelectListItem> Genres { get; set; }

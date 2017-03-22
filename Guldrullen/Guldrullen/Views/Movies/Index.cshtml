@@ -43,13 +43,13 @@
                 <table class="table table-striped" width="300">
                     <thead style="background-color:black;color:gold;">
                         <tr>
-                            <th>Top five movies</th>
+                            <th>Top ten movies</th>
                             <th><span class="glyphicon glyphicon-king"></span></th>
                         </tr>
                     </thead>
                     <tr>
                         <th><i>Movie</i></th>
-                        <th><i>Rate</i></th>
+                        <th><i>Score</i></th>
                     </tr>
                     @foreach (var movie in Model.TopRatedMoviesViewModels)
                     {
@@ -78,7 +78,7 @@
                     </tr>
                     @foreach (var movie in Model.RecentlyAddedMoviesViewModels)
                     {
-                        <tr>
+                        <tr onclick="document.location = '/movies/info/@movie.Id';">
                             <td><a href="/movies/info/@movie.Id">@movie.Title</td>
                             <td>@movie.Genre</td>
                         </tr>

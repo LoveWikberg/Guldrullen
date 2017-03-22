@@ -32,7 +32,7 @@ namespace Guldrullen.Controllers
         {
             var models = new MovieIndexAdvancedVM();
 
-            models.TopRatedMoviesViewModels = context.GetTopFiveMovies();
+            models.TopRatedMoviesViewModels = context.GetTopTenMovies();
             models.RecentlyAddedMoviesViewModels = context.GetRecentlyAddedMovies();
 
             return View(models);
@@ -51,6 +51,10 @@ namespace Guldrullen.Controllers
                     new GenreVM {Id=2, TypeOfGenre="Action"},
                     new GenreVM {Id=3, TypeOfGenre="Drama"},
                     new GenreVM {Id=4, TypeOfGenre="Comedy"},
+                    new GenreVM {Id=5, TypeOfGenre="Kids"},
+                    new GenreVM {Id=6, TypeOfGenre="Thriller"},
+                    new GenreVM {Id=7, TypeOfGenre="Horror"},
+                    new GenreVM {Id=8, TypeOfGenre="Documentary"},
                 }
             };
 
@@ -189,8 +193,8 @@ namespace Guldrullen.Controllers
 
         public IActionResult GetMovies(string id)
         {
-            //var viewModel = context.GetNaVBarSearchResult(id);
-            var viewModel = "hej";
+            var viewModel = context.GetNavBarSearchResult(id);
+            
             return PartialView("NavBarSearch", viewModel);
         }
 
