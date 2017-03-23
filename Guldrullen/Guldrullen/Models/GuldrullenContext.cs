@@ -177,7 +177,8 @@ namespace Guldrullen.Models.Entities
                 "Kids",
                 "Thriller",
                 "Horror",
-                "Documentary"
+                "Documentary",
+                "Adventure"
             };
         }
 

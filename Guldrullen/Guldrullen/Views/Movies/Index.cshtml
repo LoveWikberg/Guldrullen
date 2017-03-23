@@ -1,6 +1,7 @@
 ﻿@model MovieIndexAdvancedVM
 
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel"style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
     <!-- Indicators -->
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
@@ -38,33 +39,32 @@
     <h3></h3><br>
     <div class="row">
         <div class="col-sm-6">
-            <div class="container">
-                @*<h4>Top five movies <span class="glyphicon glyphicon-king"></span></h4>*@
-                <table class="table table-striped" width="300">
-                    <thead style="background-color:black;color:gold;">
+                <div class="container">
+                    <table class="table table-striped" width="300" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                        <thead style="background-color:black;color:gold;">
+                            <tr>
+                                <th>Top ten movies</th>
+                                <th><span class="glyphicon glyphicon-king"></span></th>
+                            </tr>
+                        </thead>
                         <tr>
-                            <th>Top ten movies</th>
-                            <th><span class="glyphicon glyphicon-king"></span></th>
+                            <th><i>Movie</i></th>
+                            <th><i>Score</i></th>
                         </tr>
-                    </thead>
-                    <tr>
-                        <th><i>Movie</i></th>
-                        <th><i>Score</i></th>
-                    </tr>
-                    @foreach (var movie in Model.TopRatedMoviesViewModels)
-                    {
-                        <tr onclick="document.location = '/movies/info/@movie.Id';">
-                            <td><a href="/movies/info/@movie.Id">@movie.Title</td>
-                            <td>@movie.Rate</td>
-                        </tr>
+                        @foreach (var movie in Model.TopRatedMoviesViewModels)
+                        {
+                            <tr onclick="document.location = '/movies/info/@movie.Id';">
+                                <td><a href="/movies/info/@movie.Id">@movie.Title</td>
+                                <td>@movie.Rate</td>
+                            </tr>
 
-                    }
-                </table>
+                        }
+                    </table>
             </div>
         </div>
         <div class="col-sm-6">
             <div class="container">
-                <table class="table table-striped" width="300">
+                <table class="table table-striped" width="300" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
                     <thead style="background-color:black;color:gold;">
                         <tr>
                             <th>Recently added movies</th>

@@ -31,17 +31,4 @@ namespace Guldrullen.Models
         public string TypeOfGenre { set; get; }
     }
 
-    //public class FilterGenre
-    //{
-    //    [Display(Name = "Genre")]
-    //    public int[] SelectedGenres { set; get; }
-    //    public IEnumerable<GenreVM> Genres{ set; get; }
-
-    //}
-    //public class GenreVM
-    //{
-    //    public int Id { set; get; }
-    //    public string TypeOfGenre { set; get; }
-    //    public bool IsChosen { set; get; }
-    //}
 }

@@ -55,6 +55,7 @@ namespace Guldrullen.Controllers
                     new GenreVM {Id=6, TypeOfGenre="Thriller"},
                     new GenreVM {Id=7, TypeOfGenre="Horror"},
                     new GenreVM {Id=8, TypeOfGenre="Documentary"},
+                    new GenreVM {Id=9, TypeOfGenre="Adventure"},
                 }
             };
 
@@ -101,11 +102,13 @@ namespace Guldrullen.Controllers
         {
             var genres = context.GetAllGenres();
 
-            var model = new MovieCreateVM();
+            var viewModel = new MovieCreateVM();
 
-            model.Genres = context.GetSelectedListItem(genres);
+            viewModel.Genres = context.GetSelectedListItem(genres);
+            viewModel = new MovieCreateVM();
 
-            return View(model);
+
+            return View(viewModel);
         }
 
         [HttpPost]
@@ -194,7 +197,7 @@ namespace Guldrullen.Controllers
         public IActionResult GetMovies(string id)
         {
             var viewModel = context.GetNavBarSearchResult(id);
-            
+
             return PartialView("NavBarSearch", viewModel);
         }
 
